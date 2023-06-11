@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import css from './main.module.css';
 import OptionOne from "../Options/OptionOne";
 import ReactDOM from 'react-dom'
-import CustomModal from "../Modal/Modal";
-import {Button} from "@mui/material";
+import {Button, Modal, Switch} from "@mui/material";
+import {BrowserRouter, Route, Router} from "react-router-dom";
 
 
 const Main = () => {
@@ -39,15 +39,9 @@ const Main = () => {
             .map(([name, isChecked]) => name);
 
         if (selectedCheckboxes.length > 0) {
-            const newTab = window.open('', '_blank');
-            newTab.document.body.innerHTML = '<div id="root"></div>';
-
-            const SelectedCheckBoxesComponent = getSelectedCheckBoxesComponent(selectedCheckboxes);
-
-            ReactDOM.render(
-                <NewTab SelectedCheckBoxesComponent={SelectedCheckBoxesComponent} />,
-                newTab.document.getElementById('root')
-            );
+            selectedCheckboxes.forEach((checkbox) => {
+                const newTab = window.open(`/${checkbox}`, '_blank');
+            });
         }
     };
 
@@ -361,13 +355,13 @@ function NewTab({ SelectedCheckBoxesComponent }) {
         </div>
     );
 }
-function CheckBox1() {
+export function CheckBox1() {
     return (
         <>
-            <Button variant="contained" onClick={handleOpen}>
+            <Button variant="contained">
                 Открыть модальное окно
             </Button>
-            <CustomModal open={open} onClose={handleClose}>
+            <Modal>
                 <table>
                     <thead>
                     <tr>
@@ -383,11 +377,11 @@ function CheckBox1() {
                     {/* Добавьте дополнительные строки таблицы, если нужно */}
                     </tbody>
                 </table>
-            </CustomModal>
+            </Modal>
         </>
     );
 }
-function CheckBox2() {
+export function CheckBox2() {
     return (
         <div>
             <label>
@@ -397,7 +391,7 @@ function CheckBox2() {
         </div>
     );
 }
-function CheckBox3() {
+export function CheckBox3() {
     return (
         <div>
             <label>
@@ -407,7 +401,7 @@ function CheckBox3() {
         </div>
     );
 }
-function CheckBox4() {
+export function CheckBox4() {
     return (
         <div>
             <label>
@@ -417,7 +411,7 @@ function CheckBox4() {
         </div>
     );
 }
-function CheckBox5() {
+export function CheckBox5() {
     return (
         <div>
             <label>
@@ -427,7 +421,7 @@ function CheckBox5() {
         </div>
     );
 }
-function CheckBox6() {
+export function CheckBox6() {
     return (
         <div>
             <label>
@@ -437,7 +431,7 @@ function CheckBox6() {
         </div>
     );
 }
-function CheckBox7() {
+export function CheckBox7() {
     return (
         <div>
             <label>
@@ -447,7 +441,7 @@ function CheckBox7() {
         </div>
     );
 }
-function CheckBox8() {
+export function CheckBox8() {
     return (
         <div>
             <label>
@@ -457,7 +451,7 @@ function CheckBox8() {
         </div>
     );
 }
-function CheckBox9() {
+export function CheckBox9() {
     return (
         <div>
             <label>
@@ -467,7 +461,7 @@ function CheckBox9() {
         </div>
     );
 }
-function CheckBox10() {
+export function CheckBox10() {
     return (
         <div>
             <label>
@@ -477,7 +471,7 @@ function CheckBox10() {
         </div>
     );
 }
-function CheckBox11() {
+export function CheckBox11() {
     return (
         <div>
             <label>
@@ -487,7 +481,7 @@ function CheckBox11() {
         </div>
     );
 }
-function CheckBox12() {
+export function CheckBox12() {
     return (
         <div>
             <label>
@@ -497,7 +491,7 @@ function CheckBox12() {
         </div>
     );
 }
-function CheckBox13() {
+export function CheckBox13() {
     return (
         <div>
             <label>
@@ -507,7 +501,7 @@ function CheckBox13() {
         </div>
     );
 }
-function CheckBox14() {
+export function CheckBox14() {
     return (
         <div>
             <label>
@@ -517,7 +511,7 @@ function CheckBox14() {
         </div>
     );
 }
-function CheckBox15() {
+export function CheckBox15() {
     return (
         <div>
             <label>
@@ -527,7 +521,7 @@ function CheckBox15() {
         </div>
     );
 }
-function CheckBox16() {
+export function CheckBox16() {
     return (
         <div>
             <label>
